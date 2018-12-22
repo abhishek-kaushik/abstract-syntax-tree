@@ -16,10 +16,8 @@ module.exports = function (app) {
         });
 
     app.post('/calc', (req, res) => {
-        let obj = Object.keys(req.body)[0];
-        const exp = JSON.parse(obj).expression
         res.send({
-            "result": solve(sortTree(exp))
+            "result": solve(sortTree(req.body.expression))
         });
     });
 };
